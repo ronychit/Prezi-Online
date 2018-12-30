@@ -29,7 +29,6 @@
     "express": "^4.16.4",
     "path": "^0.12.7",
     "rxjs": "~6.3.3",
-    "typescript": "~3.1.6",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
@@ -52,7 +51,7 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
-    "typescript": "~3.1.6"
+    "typescript": "^3.1.6"
   },
   "engines": {
     "node": "v8.11.4",
