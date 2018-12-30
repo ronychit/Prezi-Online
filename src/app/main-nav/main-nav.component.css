@@ -1,0 +1,16 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 100px;
+  box-shadow: 3px 0 6px rgba(0,0,0,.24);
+}
+
+.nav-list{
+	
+    background: beige;
+
+}

@@ -1,0 +1,72 @@
+<div class="main-form">
+
+<div class="search-box">
+  
+  <mat-form-field class="form-full-width">
+  
+      <input matInput [(ngModel)]="query" name="searchInput" placeholder="Search by Title" value="" >
+      
+ </mat-form-field>
+  <div class="search-button">
+        <button mat-raised-button (click)="searchByTitle()" color="primary">Search</button>
+      </div>  
+</div>
+
+	
+
+</div>
+
+<div class="prezi-container mat-elevation-z8">
+
+  <mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter by any field values">
+  </mat-form-field>
+
+  <div class="prezis-table-container">
+  <table mat-table [dataSource]="dataSource"   class="prezi-table" matSort matSortActive="createdAt " matSortDisableClear matSortDirection="asc">
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef > ID </th>
+      <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+    </ng-container>
+
+    <!-- Title Column -->
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef > Title </th>
+      <td mat-cell *matCellDef="let row"> {{row.title}}</td>
+    </ng-container>
+
+    <!-- Thumb Nail Column -->
+    <ng-container matColumnDef="thumbnail">
+      <th mat-header-cell *matHeaderCellDef > Thumb Nail </th>
+      <td mat-cell *matCellDef="let row"> <img class="prezi-thump" src="{{row.thumbnail}}">  </td>
+    </ng-container>
+
+    <!-- Creator Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef > Creator Name </th>
+      <td mat-cell *matCellDef="let row"> {{row.creator.name}} </td>
+    </ng-container>
+
+    <!-- Creator Profile URL Column -->
+    <ng-container matColumnDef="profileUrl">
+      <th mat-header-cell *matHeaderCellDef > Profile URL </th>
+      <td mat-cell *matCellDef="let row"> {{row.creator.profileUrl}} </td>
+    </ng-container>
+
+    <!-- Created Date Column -->
+    <ng-container matColumnDef="createdAt">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear> Created Date </th>
+      <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.createdAt | date}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+    </tr>
+  </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+</div>
+
+</div>
